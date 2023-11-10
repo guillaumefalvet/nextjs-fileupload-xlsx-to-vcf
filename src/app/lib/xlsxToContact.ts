@@ -1,11 +1,8 @@
 // import fs from "fs";
 import * as xlsx from "xlsx";
 
-export default function xlsToContact(
-  buffer: any,
-  outputFilename: string = "merged_contacts.vcf"
-): string | boolean {
-  function createVcf(contactData: any) {
+export default function xlsToContact(buffer: Buffer): string | boolean {
+  function createVcf(contactData: Record<string, any>) {
     // Create a string to represent the vCard
     let vcardContent = `BEGIN:VCARD\nVERSION:3.0\nFN:${contactData.clientName}`;
 
