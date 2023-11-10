@@ -25,7 +25,6 @@
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Demo](#demo)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
 - [License](#license)
@@ -72,10 +71,6 @@
 
 5. Download the converted VCF file.
 
-## Demo
-
-A live demo of this application is available at [Demo Link](#) (Replace with your demo link).
-
 ## Technologies Used
 
 - [Next.js](https://nextjs.org/)
@@ -94,7 +89,7 @@ Contributions are welcome! Please follow these guidelines:
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](./MIT-LICENSE.txt).
 
 ```
 
