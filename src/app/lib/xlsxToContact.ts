@@ -1,7 +1,12 @@
 // import fs from "fs";
 import * as xlsx from "xlsx";
-
-export default function xlsToContact(buffer: Buffer): string | boolean {
+class WrongExcelFormat extends Error {
+  constructor(message: string) {
+    super(`Wrong Excel Format: ${message}`);
+  }
+}
+type Result = string | WrongExcelFormat;
+export default function xlsToContact(buffer: Buffer): Result {
   function createVcf(contactData: Record<string, any>) {
     // Create a string to represent the vCard
     let vcardContent = `BEGIN:VCARD\nVERSION:3.0\nFN:${contactData.clientName}`;
@@ -82,9 +87,8 @@ export default function xlsToContact(buffer: Buffer): string | boolean {
     // OTPION: Save the merged vCard content to a file
     // fs.writeFileSync('merged_contacts.vcf', mergedVcardContent);
 
-    console.log("conversion done");
     return mergedVcardContent;
-  } catch (error) {
-    return false;
+  } catch (error: any) {
+    throw new WrongExcelFormat(error.message);
   }
 }
