@@ -14,7 +14,7 @@ class WrongFileTypeError extends Error {
 }
 export default async function formAction(
   data: FormData
-): Promise<string | unknown> {
+): Promise<string | NoFileError | WrongFileTypeError> {
   try {
     const file: File = data.get("file") as File;
 
@@ -34,7 +34,12 @@ export default async function formAction(
 
     const processedData = xlsToContact(buffer);
     return processedData;
-  } catch (error) {
-    return error;
+  } catch (error: any) {
+    if (error instanceof NoFileError || error instanceof WrongFileTypeError) {
+      throw error;
+    } else {
+      // Otherwise, handle it as a string error message
+      return error.message || "An unknown error occurred";
+    }
   }
 }
