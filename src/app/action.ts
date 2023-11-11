@@ -1,5 +1,5 @@
 "use server";
-import xlsToContact from "@/app/lib/xlsxToContact";
+import xlsToContact from "@lib/xlsxToContact";
 
 class NoFileError extends Error {
   constructor() {
