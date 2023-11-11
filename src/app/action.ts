@@ -18,7 +18,8 @@ export default async function formAction(
   try {
     const file: File = data.get("file") as File;
 
-    if (!file) {
+    // logically i would check !file but it's not empty so it doesn't work to do validation, so instead i just check the size.
+    if (file.size === 0) {
       throw new NoFileError();
     }
     // Define allowed file types
