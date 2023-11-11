@@ -24,6 +24,7 @@ export default async function formAction(
     // Define allowed file types
     const allowedTypes = [
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "application/vnd.ms-excel",
     ];
     if (!allowedTypes.includes(file?.type)) {
       throw new WrongFileTypeError();
