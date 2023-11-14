@@ -1,9 +1,9 @@
-import UploadForm from "@components/UploadForm";
+import UploadForm from '@components/UploadForm'
 
 export default function Home() {
   return (
-    <div className=" bg-stone-950 h-screen">
+    <div className=" h-screen bg-stone-950">
       <UploadForm />
     </div>
-  );
+  )
 }
